@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- spring에서는 모든 클래스가 bean이며, 클래스를 등록하면 해당 클래스의 모든 객체를 생성함
+	이때 id는 생성된 객체의 참조변수와 같은 역할을 한다. -->
+	<!-- name 속성으로 참조 변수 말고도 별명을 사용할 수 있다 -->
+	<bean id="msgKr" name="mskr, msgkr, kr" class="basic04.MessageBeanKr"></bean>
+	<!-- MessageBeanKr msgKr = new MessageBeanKr(); -->
+	<bean id="msgEn" class="basic04.MessageBeanEn"></bean>
+
+</beans>

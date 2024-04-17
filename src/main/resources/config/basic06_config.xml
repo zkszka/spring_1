@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- scanner를 설정 파일에 달기 ClassPathXmlApplicationContext 사용하는 것과 같음 -->
+    <context:component-scan base-package="basic06"></context:component-scan>
+
+	<!-- spring에서는 모든 클래스가 bean이며, 클래스를 등록하면 해당 클래스의 모든 객체를 생성함
+	이때 id는 생성된 객체의 참조변수와 같은 역할을 한다. -->
+	<!-- name 속성으로 참조 변수 말고도 별명을 사용할 수 있다 -->
+	<!--
+	<bean id="kr" class="basic06.MessageBeanKr">
+		
+		<constructor-arg>
+			<value>홍길동</value>
+		</constructor-arg>
+		
+		<constructor-arg value="홍길동" />
+		<constructor-arg value="35" />
+	</bean>
+	-->
+	
+	<!-- MessageBeanKr msgKr = new MessageBeanKr(); -->
+	<!-- <bean id="en" class="basic06.MessageBeanEn">
+		
+		<property name="name">
+			<value>Jhon</value>
+		</property>
+		
+		<property name="name" value="TOM" />
+		<property name="age" value="25" />
+	</bean>
+	-->
+
+	
+
+</beans>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- spring에서는 모든 클래스가 bean이며, 클래스를 등록하면 해당 클래스의 모든 객체를 생성함
+	이때 id는 생성된 객체의 참조변수와 같은 역할을 한다. -->
+	<!-- name 속성으로 참조 변수 말고도 별명을 사용할 수 있다 -->
+	<!-- class="basic05.MessageBeanImpl" 만으로도 객체 생성이 된 것이다. -->
+	<bean id="messageBean" class="basic05.MessageBeanImpl">
+		<!-- constructor-arg는 생성자의 인자값으로 넘겨주기 위한 태그. 생성자를 통해서 객체를 주입함 
+		=> 생성자를 통한 의존성 주입 
+		인덱스는 인자값 순서를 지정해준다 -->
+		<!--
+		<constructor-arg index="0" value="홍길동" />
+		<constructor-arg index="1" value="20" />
+		<constructor-arg index="2" value="안녕하세요" />
+		-->
+		
+		<!-- 인덱스가 아닌 타입으로 생성자 인자값을 설정할 수 있다.
+			대신 타입이 같을 경우 순서를 맞춰서 작성해야 하므로 타입이 모두 다른 경우에 사용하는 것이 좋음-->
+		<constructor-arg type="String" value="홍길동" />
+		<constructor-arg type="int" value="20" />
+		<constructor-arg type="String" value="안녕하세요" />
+		
+		<!-- setter 메서드로 인자값 전달. 값을 수정했다.  
+			property 태그를 사용하는데 이때 set이 생략되었다고 할 수 있다. 
+			bean에서처럼 set을 생략하고 대문자를 소문자로 바꾸어서 name에 메서드를 대입한다. -->
+		<property name="name" value="임꺽정" />
+		<property name="age" value="30" />
+		<!-- setOutputter 메서드의 인자값으로 참조 변수(객체 주소값)를 전달해야 하므로 value가 아닌 ref 속성을 사용한다! -->
+		<property name="outputter" ref="outputter" />
+	
+	</bean>	
+	
+		<!-- 파일 생성을 위한 객체 생성 
+			FilwOutputter 클래스 타입의 outputter 참조 변수 생성-->
+		<bean id="outputter" class="basic05.FileOutputter">
+			<property name="filePath" value="c:\\dana\\greeting.txt"></property>
+		</bean>
+	
+	
+</beans>
